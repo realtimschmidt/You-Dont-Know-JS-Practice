@@ -34,6 +34,19 @@ function foo(a) {
 foo( 2 ); // 2 4 12
 ```
 
+es6 re-write
+
+```js
+const foo = (a) => {
+  var b = a * 2
+  const bar = (c) => {
+    console.log(a,b,c)
+  }
+  bar(b*3)
+}
+foo(2)
+```
+
 There are three nested scopes inherent in this code example. It may be helpful to think about these scopes as bubbles inside of each other.
 
 <img src="fig2.png" width="500">
