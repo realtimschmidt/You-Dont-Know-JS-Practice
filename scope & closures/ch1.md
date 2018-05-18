@@ -27,6 +27,19 @@ In a traditional compiled-language process, a chunk of source code, your program
 
     The tree for `var a = 2;` might start with a top-level node called `VariableDeclaration`, with a child node called `Identifier` (whose value is `a`), and another child called `AssignmentExpression` which itself has a child called `NumericLiteral` (whose value is `2`).
 
+```xml
+    <VariableDeclaration>
+      <Identifier>
+        <value>a</value
+      </Identifier>
+      <AssignmentExpression>
+        <NumericLiteral>
+          <value>2</value>
+        </NumericLiteral>
+      </AssignmentExpression>
+    </VariableDeclaration>
+```
+
 3. **Code-Generation:** the process of taking an AST and turning it into executable code. This part varies greatly depending on the language, the platform it's targeting, etc.
 
     So, rather than get mired in details, we'll just handwave and say that there's a way to take our above described AST for `var a = 2;` and turn it into a set of machine instructions to actually *create* a variable called `a` (including reserving memory, etc.), and then store a value into `a`.
@@ -194,7 +207,16 @@ var c = foo( 2 );
 
 1. Identify all the LHS look-ups (there are 3!).
 
+`c = foo( 2 ) in var c = foo( 2 )`
+`a = 2 in function foo(a)`
+`b = a in var b = a`
+
 2. Identify all the RHS look-ups (there are 4!).
+
+`2 in var c = foo( 2 )`
+`a in var b = a`
+`a in return a + b`
+`b in return a + b`
 
 **Note:** See the chapter review for the quiz answers!
 
