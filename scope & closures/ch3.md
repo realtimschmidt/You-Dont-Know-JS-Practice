@@ -97,6 +97,22 @@ function doSomething(a) {
 doSomething( 2 ); // 15
 ```
 
+es6 re-write
+
+```js
+const doSomething = (a) => {
+  const doSomethingElse = (a) => a - 1
+
+  let b
+
+  b = a + doSomethingElse( a * 2 )
+
+  console.log(b*3)
+}
+
+doSomething(2)
+```
+
 Now, `b` and `doSomethingElse(..)` are not accessible to any outside influence, instead controlled only by `doSomething(..)`. The functionality and end-result has not been affected, but the design keeps private details private, which is usually considered better software.
 
 ### Collision Avoidance
@@ -373,6 +389,8 @@ That is, until you dig a little further.
 ### `with`
 
 We learned about `with` in Chapter 2. While it is a frowned upon construct, it *is* an example of (a form of) block scope, in that the scope that is created from the object only exists for the lifetime of that `with` statement, and not in the enclosing scope.
+
+BOOKMARK
 
 ### `try/catch`
 
