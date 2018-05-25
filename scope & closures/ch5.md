@@ -358,6 +358,31 @@ foo.doSomething(); // cool
 foo.doAnother(); // 1 ! 2 ! 3
 ```
 
+es6
+
+```js
+const CoolModule = () => {
+  let something
+  let another
+
+  something = 'cool'
+  another = [1, 2, 3]
+
+  const doSomething = () => console.log(something)
+  const doAnother = () => console.log(another.join(" ! "))
+
+  return {
+    doSomething: doSomething,
+    doAnother: doAnother
+  }
+}
+
+const foo = CoolModule()
+
+foo.doSomething()
+foo.doAnother()
+```
+
 This is the pattern in JavaScript we call *module*. The most common way of implementing the module pattern is often called "Revealing Module", and it's the variation we present here.
 
 Let's examine some things about this code.
@@ -425,6 +450,23 @@ var foo2 = CoolModule( "foo 2" );
 
 foo1.identify(); // "foo 1"
 foo2.identify(); // "foo 2"
+```
+
+es6
+
+```js
+const CoolModule = (id) => {
+  const identify = () => console.log(id)
+  return {
+    identify: identify
+  }
+}
+
+const foo1 = CoolModule("foo1")
+const foo2 = CoolModule("foo2")
+
+foo1.identify()
+foo2.identify()
 ```
 
 Another slight but powerful variation on the module pattern is to name the object you are returning as your public API:
