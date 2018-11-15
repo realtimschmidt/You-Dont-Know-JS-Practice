@@ -1,0 +1,14 @@
+{
+  "name": "ydkj-practice",
+  "version": "1.0.0",
+  "description": "My practice projects while reading You Don't Know Javascript",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Tim Schmidt",
+    "url": "http://realtimschmidt.com/"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
+  },
+  "dependencies": {}
+}
