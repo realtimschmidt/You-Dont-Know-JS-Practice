@@ -30,4 +30,6 @@ const phonePurchase = (bankAccount) => {
   return formattedTotal
 }
 
-phonePurchase(1000)
+module.exports = (bankAccount) => {
+  return phonePurchase(bankAccount)
+}
