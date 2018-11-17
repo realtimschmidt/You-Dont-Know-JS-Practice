@@ -31,5 +31,7 @@ const phonePurchase = (bankAccount) => {
 }
 
 module.exports = (bankAccount) => {
-  return phonePurchase(bankAccount)
+  return new Promise((resolve, reject) => {
+    resolve(phonePurchase(bankAccount))
+  })
 }
