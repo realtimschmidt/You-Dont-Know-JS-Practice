@@ -10,7 +10,6 @@ const dollarFormatter = (unformattedValue) => {
 }
 
 const phonePurchase = (bankAccount) => {
-  // const bankAccount = 1000
   const phonePrice = 199
   const phoneAccessories = 50
 
@@ -18,14 +17,16 @@ const phonePurchase = (bankAccount) => {
 
   subTotal = 0
   
+  if(typeof bankAccount !== "number"){
+    return Promise.reject(`You paid with ${bankAccount}. You can only use numbers.`)
+  }
+
   while ((subTotal + phonePrice + phoneAccessories) * (1 + tax) <= bankAccount) {
     subTotal += phonePrice + phoneAccessories
   }
   
   const totalAfterTax = addTax(subTotal)
   const formattedTotal = dollarFormatter(totalAfterTax)
-  
-  console.log(formattedTotal)
 
   return formattedTotal
 }
@@ -33,5 +34,8 @@ const phonePurchase = (bankAccount) => {
 module.exports = (bankAccount) => {
   return new Promise((resolve, reject) => {
     resolve(phonePurchase(bankAccount))
+  })
+  .catch((error) => {
+    return Promise.reject(error)
   })
 }
