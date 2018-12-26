@@ -9,7 +9,6 @@ for (let index of myArray) {
 }
 
 let it
-
 it = myArray[Symbol.iterator]()
 
 console.log(
