@@ -20,4 +20,4 @@ console.log(myObject.b)
 
 myObject.a = 3
 
-console.log(myObject.a)
+console.log(myObject.a) // myObject.a is still 2
