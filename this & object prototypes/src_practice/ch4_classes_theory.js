@@ -3,5 +3,8 @@
 //  train
 //  plane
 
+// Classes means copies
 
-//bookmark - Mixins
+// Mixins are a way to copy one object to another object, similar to classes.
+
+// In general, faking classes in JS often sets more landmines for future coding than solving present real problems.
